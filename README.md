@@ -28,10 +28,11 @@ You will need to install [`Conda`](https://docs.conda.io/en/latest/) package man
 git clone https://github.com/baldikacti/chienlab-tnseq.git
 ```
 
-2. Change your directory to cloned repository
-3. Create conda environment
+2. Change your working directory to cloned repository
+3. Create and activate the conda environment
 ```
 conda env create -f envs/environment
+conda activate chienlab-tnseq
 ```
 
 4. Open `config/config.yaml` in your favorite text editor. 
@@ -41,6 +42,8 @@ Change the `fastq: "data/test/"` paramater to the directory that contains your f
 Change the `results: "results/test/"` paramater to the directory that you want the results to be exported to.
 
 It is important to keep the forward slashed at the end of directory paths.
+
+The config file contains parameters for fasta and bed formatted gene feature references. Change those as needed for different organisms.
 
 5. Run the pipeline with select number of cores.
 
