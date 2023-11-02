@@ -1,1 +1,0 @@
-snakemake all --cores 6
