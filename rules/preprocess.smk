@@ -18,6 +18,8 @@ rule seqkit_grep:
         config["results"] + "preprocess/{smp}_clipped.fq.gz"
     output:
         config["results"] + "preprocess/{smp}_pruned.fq.gz"
+    params:
+        tn_filter = config["transposon_static_region"]
     threads: 4
     shell:
-        "zcat < {input} | seqkit grep --threads {threads} --by-seq --ignore-case --pattern TGTATAAGAG -o {output}"
+        "zcat < {input} | seqkit grep --threads {threads} --by-seq --ignore-case --pattern {params.tn_filter} -o {output}"

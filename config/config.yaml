@@ -1,8 +1,9 @@
 fastq: "data/test/"
 results: "results/test/"
-env: "envs/environment.yaml"
+transposon_static_region: "TGTATAAGAG"
 ref:
   fasta: "references/NC_011916.fasta"
-  map_mid: "references/CCNA_mid_bedfile.txt"
-  map_full: "references/CCNA_bedfile.txt"
+  map_mid: "references/CCNA_mid_genes.bed"
+  map_full: "references/CCNA_genes.bed"
+env: "envs/environment.yaml"
 script: "bin/"

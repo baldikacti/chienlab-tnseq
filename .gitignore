@@ -54,6 +54,6 @@ rsconnect/
 # Snakemake
 .snakemake/
 
-# outputs
+# tests
 data/
 results/

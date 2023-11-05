@@ -18,6 +18,6 @@ conda activate chienlab-tnseq
 
 # Run pipeline with all available cores
 # Empty --cores argument defaults to all available cores
-snakemake --use-conda --cores
+snakemake --quiet --cores
 
 date
