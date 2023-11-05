@@ -14,10 +14,12 @@ module load miniconda/22.11.1-1
 
 # Activate conda environment
 
-conda activate chienlab-tnseq
+conda activate /work/pi_pchien_umass_edu/berent/chienlab-tnseq/conda-tnseq
 
 # Run pipeline with all available cores
 # Empty --cores argument defaults to all available cores
-snakemake --quiet --cores
+snakemake --quiet rules --cores
+
+date
 
 date
