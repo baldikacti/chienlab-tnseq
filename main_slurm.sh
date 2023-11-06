@@ -18,6 +18,6 @@ conda activate /work/pi_pchien_umass_edu/berent/chienlab-tnseq/conda-tnseq
 
 # Run pipeline with all available cores
 # Empty --cores argument defaults to all available cores
-snakemake --quiet rules --cores --profile profiles/default
+snakemake --profile profiles/default
 
 date
