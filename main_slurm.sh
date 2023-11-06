@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 #SBATCH --job-name=chienlab-tnseq-ba   # Job name
 #SBATCH --partition=cpu            # Partition (queue) name
-#SBATCH --ntasks=12                   # Number of CPU cores
+#SBATCH --ntasks=24                   # Number of CPU cores
 #SBATCH --nodes=1                       # Number of nodes
-#SBATCH --mem=32gb                     # Job memory request
+#SBATCH --mem=240gb                     # Job memory request
 #SBATCH --time=06:00:00               # Time limit hrs:min:sec
 #SBATCH --output=logs/chienlab-tnseq-ba_%j.log   # Standard output and error log
 date;hostname;pwd
@@ -18,8 +18,6 @@ conda activate /work/pi_pchien_umass_edu/berent/chienlab-tnseq/conda-tnseq
 
 # Run pipeline with all available cores
 # Empty --cores argument defaults to all available cores
-snakemake --quiet rules --cores
-
-date
+snakemake --quiet rules --cores --profile profiles/default
 
 date
