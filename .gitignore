@@ -57,3 +57,7 @@ rsconnect/
 # tests
 data/
 results/
+logs/
+
+# conda env
+conda-tnseq/
