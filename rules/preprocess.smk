@@ -8,8 +8,10 @@ rule clip:
         config["results"] + "preprocess/{smp}_clipped.fq.gz"
     params:
         outdir = config["results"] + "preprocess"
+    resources:
+        mem_mb=lambda wildcards, attempt: attempt * 6000
     shell:
-        "java -jar {input.je} clip F1={input.data} LEN=6 O={params.outdir}"
+        "java -Xmx{resources.mem_mb}m -jar {input.je} clip F1={input.data} LEN=6 O={params.outdir}"
 
 # --- Seqkit Pruning --- #
 ## seqkit_grep                        : Removes reads that does not contain specific sequence

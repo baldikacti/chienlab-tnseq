@@ -24,4 +24,4 @@ rule rm_dupe:
     resources:
         mem_mb=lambda wildcards, attempt: attempt * 6000
     shell:
-        "java -jar {input.je} markdupes I={input.bam} O={output.bam} M={output.metrics} MM=0 REMOVE_DUPLICATES=TRUE"
+        "java -Xmx{resources.mem_mb}m -jar {input.je} markdupes I={input.bam} O={output.bam} M={output.metrics} MM=0 REMOVE_DUPLICATES=TRUE"
