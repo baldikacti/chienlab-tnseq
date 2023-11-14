@@ -8,9 +8,9 @@ tab_df <- mapply(\(x, y) {
   df <- read.delim(x, header = TRUE, sep = "\t", check.names = FALSE)
   colnames(df)[2] <- y
   return(df)
-}, tab_ls, tab_nm, SIMPLIFY = FALSE)
-# converts the list into dataframe
-tab_df <- lapply(tab_df, \(x) subset(x, select = -c(locus_tag)))
-tab_df <- do.call(cbind, tab_df)
-tab_df <- data.frame(locus_tag = locus_tag, tab_df)
+}, tab_ls, tab_nm, SIMPLIFY = FALSE) |>
+  lapply(\(x) subset(x, select = -c(locus_tag))) |>
+  do.call(cbind, args = _)
+tab_df$locus_tag <- locus_tag
+tab_df <- tab_df[, c("locus_tag", head(colnames(tab_df), -1))] # Reorder columns
 write.table(tab_df, arg[3], quote = FALSE, sep = "\t", row.names = FALSE, col.names = TRUE)
