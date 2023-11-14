@@ -5,7 +5,7 @@ tab_ls <- list.files(path = arg[2], pattern = ".tab", full.names = TRUE)
 tab_nm <- gsub(".tab", "", basename(tab_ls))
 # Read all .tab files and change column names to filenames
 tab_df <- mapply(\(x, y) {
-  df <- read.delim(x, header = TRUE, sep = "\t")
+  df <- read.delim(x, header = TRUE, sep = "\t", check.names = FALSE)
   colnames(df)[2] <- y
   return(df)
 }, tab_ls, tab_nm, SIMPLIFY = FALSE)
