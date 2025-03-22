@@ -15,7 +15,7 @@ rule concat_ttl_full:
 rule concat_ttl_mid:
     input:
         script = config["script"] + "concat.R",
-        ref = config["ref"]["map_full"],
+        ref = config["ref"]["map_mid"],
         data = expand(config["results"] + "read_counts/totalcounts_mid/{smp}.totalcounts.tab",smp=SAMPLES)
     output:
         config["results"] + "read_counts/totalcounts_mid.tsv"
@@ -39,7 +39,7 @@ rule concat_unq_full:
 rule concat_unq_mid:
     input:
         script = config["script"] + "concat.R",
-        ref = config["ref"]["map_full"],
+        ref = config["ref"]["map_mid"],
         data = expand(config["results"] + "read_counts/uniquecounts_mid/{smp}.uniquecounts.tab",smp=SAMPLES)
     output:
         config["results"] + "read_counts/uniquecounts_mid.tsv"

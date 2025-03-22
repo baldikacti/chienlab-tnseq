@@ -1,9 +1,9 @@
-fastq: "data/test/"
-results: "results/test/"
+fastq: "data/prod_2021/"
+results: "results/prod_2021_stranded_trim_10_10/"
 transposon_static_region: "TGTATAAGAG"
 ref:
   fasta: "references/NC_011916.fasta"
-  map_mid: "references/CCNA_mid_genes.bed"
+  map_mid: "references/CCNA_mid_trim10_10.bed"
   map_full: "references/CCNA_genes.bed"
 env: "envs/environment.yaml"
 script: "bin/"
